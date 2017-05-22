@@ -1,9 +1,18 @@
 <!--- Copyright (C) 2009-2015 Typesafe Inc. <http://www.typesafe.com> -->
+<!--
 # Testing web service clients
+-->
+# Web サービスクライアントのテスト
 
+<!--
 A lot of code can go into writing a web service client - preparing the request, serializing and deserializing the bodies, setting the correct headers.  Since a lot of this code works with strings and weakly typed maps, testing it is very important.  However testing it also presents some challenges.  Some common approaches include:
+ -->
+Web サービスクライアントには、リクエストを待ち受け、ボディをシリアライズ・デシリアライズし、適切なヘッダを設定するなどといった、大量のコードが書き込まれます。こうした大量のコードが文字列や弱い型付けのマップを処理するので、テストはとても重要です。他方で、テストは多少の課題をも呈します。一般的には以下のようなアプローチがあります：
 
+<!--
 ### Test against the actual web service
+ -->
+### 本番 Web サービスに対する試験
 
 This of course gives the highest level of confidence in the client code, however it is usually not practical.  If it's a third party web service, there may be rate limiting in place that prevents your tests from running (and running automated tests against a third party service is not considered being a good netizen).  It may not be possible to set up or ensure the existence of the necessary data that your tests require on that service, and your tests may have undesirable side effects on the service.
 
